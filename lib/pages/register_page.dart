@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/custome_button.dart';
 
+// ignore: must_be_immutable
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  static String id = 'registerPage';
 
   @override
   Widget build(BuildContext context) {

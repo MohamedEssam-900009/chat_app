@@ -1,3 +1,4 @@
+import 'register_page.dart';
 import 'package:flutter/material.dart';
 
 import '../constats.dart';
@@ -6,6 +7,8 @@ import '../widgets/custome_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+ static String id = 'loginPage';
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +85,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'RegisterPage');
+                    Navigator.pushNamed(context, RegisterPage.id);
                   },
                   child: const Text(
                     '   Register',

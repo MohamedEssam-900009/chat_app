@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Chat App',
       initialRoute: 'LoginPage',
       routes: {
-        'LoginPage': (context) => const LoginPage(),
-        'RegisterPage': (context) => const RegisterPage(),
+        LoginPage.id: (context) => LoginPage(),
+        RegisterPage.id: (context) => RegisterPage(),
       },
     );
   }
