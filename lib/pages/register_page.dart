@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../constats.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/custome_button.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPrimaryColor,
+      backgroundColor: const Color(0xff2B475E),
       resizeToAvoidBottomInset: true,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -42,7 +41,7 @@ class LoginPage extends StatelessWidget {
             Row(
               children: const [
                 Text(
-                  'LOGIN',
+                  'REGISTER',
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
@@ -66,7 +65,7 @@ class LoginPage extends StatelessWidget {
               height: 20.0,
             ),
             CustomButton(
-              text: 'Login',
+              text: 'REGISTER',
             ),
             const SizedBox(
               height: 15.0,
@@ -75,17 +74,15 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'don\'t have an account ?',
+                  'have an account ',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'RegisterPage');
-                  },
+                  onTap: () => Navigator.pop(context),
                   child: const Text(
-                    '   Register',
+                    '   Login',
                     style: TextStyle(
                       color: Color(0xffC7EDE6),
                     ),
