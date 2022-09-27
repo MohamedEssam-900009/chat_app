@@ -80,32 +80,16 @@ class RegisterPage extends StatelessWidget {
             CustomButton(
               onTap: () async {
                 try {
-                  UserCredential user = await FirebaseAuth.instance
-                      .createUserWithEmailAndPassword(
-                    email: email!,
-                    password: password!,
-                  );
+                  await registerUser();
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'weak-password') {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('The password provided is too weak.'),
-                      ),
-                    );
+                    showSnackBar(context, 'The password provided is too weak.');
                   } else if (e.code == 'email-already-in-use') {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content:
-                            Text('The account already exists for that email.'),
-                      ),
-                    );
+                    showSnackBar(
+                        context, 'The account already exists for that email.');
                   }
                 }
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Success'),
-                  ),
-                );
+                showSnackBar(context, 'Success');
               },
               text: 'REGISTER',
             ),
@@ -135,6 +119,22 @@ class RegisterPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
+
+  Future<void> registerUser() async {
+    UserCredential user =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: email!,
+      password: password!,
     );
   }
 }
