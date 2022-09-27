@@ -77,7 +77,7 @@ class RegisterPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'have an account ',
+                  'have an account',
                   style: TextStyle(
                     color: Colors.white,
                   ),
